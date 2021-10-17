@@ -29,3 +29,11 @@ export const fetchCast = movie_id => {
 		)
 		.then(response => response.data);
 };
+
+export const fetchReviews = movie_id => {
+	return axios
+		.get(
+			`https://api.themoviedb.org/3/movie/${movie_id}/reviews?api_key=${API_KEY}`
+		)
+		.then(response => response.data);
+};

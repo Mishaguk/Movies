@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import * as apiService from '../services/apiService';
-import Movie from '../components/Movie/Movie';
+import * as apiService from '../../services/apiService';
+import Movie from '../../components/Movie/Movie';
 import { Route, NavLink } from 'react-router-dom';
-import CastPage from './CastPage/CastPage';
+import CastPage from '../CastPage/CastPage';
+import ReviewsPage from '../ReviewsPage/ReviewsPage';
+import './MovieDetailsPage.css';
 
 const getIdFromProps = props => props.match.params.movieId;
 
@@ -26,8 +28,19 @@ export default class MovieDetailsPage extends Component {
 
 		return (
 			<div>
+				{movie === null && <h1>This film is not found , try any film</h1>}
 				{movie && <Movie {...movie} onGoBack={this.handleGoBack} />}
-				<NavLink to={`/movies/${movie_id}/cast`}>Cast</NavLink>
+
+				<NavLink className='cast-button-styles' to={`/movies/${movie_id}/cast`}>
+					Cast
+				</NavLink>
+				<NavLink
+					className='reviews-button-styles'
+					to={`/movies/${movie_id}/reviews`}
+				>
+					Reviews{' '}
+				</NavLink>
+				<Route path='/movies/:movieId/reviews' component={ReviewsPage} />
 				<Route path='/movies/:movieId/cast' component={CastPage} />
 			</div>
 		);

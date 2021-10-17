@@ -10,9 +10,9 @@ const Movie = ({ title, overview, backdrop_path, release_date, onGoBack }) => (
 			{title} ({release_date})
 		</h2>
 
-		<img src={backdrop_path} />
+		<img width='420' src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} />
 		<h3>
-			<b>Overview</b>
+			<b>Overview : </b>
 		</h3>
 		<span>{overview}</span>
 	</article>

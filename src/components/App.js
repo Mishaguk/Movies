@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import HomePage from '../pages/HomePage';
 import MoviesPage from '../pages/MoviesPage/MoviesPage';
 import Navigation from './Navigation/Navigation';
-import MovieDetailsPage from '../pages/MovieDetailsPage';
+import MovieDetailsPage from '../pages/MovieDetailsPage/MovieDetailsPage';
 
 export default class App extends Component {
 	state = {};
