@@ -21,12 +21,13 @@ export default class MovieDetailsPage extends Component {
 	};
 
 	render() {
+		const movie_id = getIdFromProps(this.props);
 		const { movie } = this.state;
 
 		return (
 			<div>
 				{movie && <Movie {...movie} onGoBack={this.handleGoBack} />}
-				<NavLink to='/movies/:movieId/cast'>Cast</NavLink>
+				<NavLink to={`/movies/${movie_id}/cast`}>Cast</NavLink>
 				<Route path='/movies/:movieId/cast' component={CastPage} />
 			</div>
 		);

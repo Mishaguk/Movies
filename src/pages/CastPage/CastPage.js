@@ -4,16 +4,18 @@ import { Route } from 'react-router-dom';
 import Cast from '../../components/Cast/Cast';
 
 export default class CastPage extends Component {
-	state = { cast: null };
+	state = { cast: [] };
 
 	componentDidMount() {
-		console.log(this.props.match);
-		apiService.fetchCast(this.props.match.params.movieId).then(console.log);
+		apiService
+			.fetchCast(this.props.match.params.movieId)
+			.then(cast => this.setState({ cast: cast.cast }));
 	}
 	render() {
+		const { cast } = this.state;
 		return (
 			<div>
-				<Route path='/movies/:movieId/cast' component={Cast} />
+				<Cast items={cast} />
 			</div>
 		);
 	}

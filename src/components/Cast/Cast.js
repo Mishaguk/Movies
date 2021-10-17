@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
-export default class Cast extends Component {
-	state = { cast: [] };
+const Cast = ({ items = [] }) => (
+	<ul>
+		{items.map(item => {
+			<li key={item.id}>
+				{item.name} {console.log(item.name)}
+			</li>;
+		})}
+	</ul>
+);
 
-	render() {
-		return <div>fghfghfg</div>;
-	}
-}
+export default Cast;
